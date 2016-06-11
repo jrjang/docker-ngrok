@@ -1,4 +1,4 @@
-FROM ubuntu:14.04
+FROM ubuntu:16.04
 MAINTAINER Jun-Ru Chang "jrjang@gmail.com"
 
 ENV DEBIAN_FRONTEND noninteractive
@@ -15,6 +15,7 @@ RUN apt-get update \
  && apt-get install -y build-essential golang mercurial git \
  && /usr/local/bin/install.sh
 
+ADD gitconfig /tmp/gitconfig
 ADD run.sh /usr/local/bin/run.sh
 
 ENTRYPOINT ["/usr/local/bin/run.sh"]
